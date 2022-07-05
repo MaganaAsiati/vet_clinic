@@ -28,3 +28,20 @@ COMMIT;
 
 SELECT * FROM animals;
 
+begin;
+DELETE FROM animals
+where date_of_birth >'2022-01-01';
+
+savepoint  my_save;
+UPDATE animals
+SET weight_kg = weight_kg * (-1);
+
+rollback to my_save;
+UPDATE animals
+SET weight_kg = weight_kg * (-1)
+WHERE weight_kg < 0;
+
+commit;
+
+SELECT * FROM animals;
+
