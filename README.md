@@ -1,3 +1,6 @@
+# Vet clinic database
+
+In this project,I use transactions to update and delete records. I also use your knowledge of aggregate functions and GROUP BY to answer analytical questions
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
