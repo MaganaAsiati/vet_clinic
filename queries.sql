@@ -45,3 +45,4 @@ commit;
 
 SELECT * FROM animals;
 
+SELECT COUNT (*) as number_of_animals FROM animals;
