@@ -60,3 +60,9 @@ ON O.id = A.owner_id
 WHERE O.full_name = 'Melody Pond';
 
 
+SELECT A.name, S.name 
+FROM animals A
+JOIN species S
+ON S.id = A.species_id
+WHERE S.name = 'Pokemon';
+
