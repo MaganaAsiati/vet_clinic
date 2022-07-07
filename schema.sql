@@ -38,7 +38,15 @@ CREATE TABLE IF NOT EXISTS specializations (
 
 );
 
+CREATE TABLE IF NOT EXISTS visits (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    data_of_visit DATE,
+    animal_id INT,
+    FOREIGN KEY (animal_id) REFERENCES animals(id),
+    vet_id INT,
+    FOREIGN KEY (vet_id) REFERENCES vets(id)
 
+);
 
 ALTER TABLE animals
 DROP COLUMN species;
