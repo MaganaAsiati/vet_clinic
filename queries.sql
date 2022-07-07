@@ -139,12 +139,11 @@ JOIN vets VE
 ON VE.id = V.vet_id
 WHERE VE.name = 'Stephanie Mendez' and V.date_of_visit >= 'Apr 01, 2020' and V.date_of_visit >= 'Aug 30, 2020' 
  
-SELECT A.name,V.date_of_visit FROM animals A
-JOIN visits V
-ON A.id = V.animal_id
-JOIN vets VE
-ON VE.id = V.vet_id
-WHERE VE.name = 'Maisy Smith'
-ORDER BY V.date_of_visit
-ASC LIMIT 1;
+ SELECT a.name, COUNT(v.animal_id) as visit_number FROM animals a
+JOIN visits v
+ON v.animal_id = a.id
+GROUP BY a.name
+ORDER BY (visit_number)
+DESC LIMIT 1;
+
 
