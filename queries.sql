@@ -89,3 +89,12 @@ ON O.id = A.owner_id
 WHERE O.full_name = 'Jennifer Orwell';
 
 
+SELECT A.name, O.full_name
+FROM animals A
+JOIN species S
+ON S.id = A.species_id
+JOIN owners O
+ON O.id = A.owner_id
+WHERE O.full_name = 'Dean Winchester' AND A.escape_attempts = 0;
+
+
