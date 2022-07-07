@@ -156,3 +156,25 @@ WHERE VE.name = 'Maisy Smith'
 ORDER BY V.date_of_visit
 ASC LIMIT 1;
 
+SELECT a.* as animal, v.*, ve.* as vet from animals a
+JOIN visits v
+ON v.animal_id = a.id
+JOIN vets ve
+ON ve.id = v.vet_id
+ORDER BY v.date_of_visit
+DESC LIMIT 1;
+
+
+
+SELECT ve.name, COUNT(v.vet_id) FROM vets ve
+JOIN visits v
+ON v.vet_id = ve.id
+JOIN animals a
+ON a.id = v.animal_id
+WHERE a.species_id IN (SELECT sp.species_id FROM specializations sp
+                          JOIN vets v
+                          ON v.id = sp.vet_id
+                          WHERE v.name = ve.name)
+GROUP BY ve.name;
+
+
