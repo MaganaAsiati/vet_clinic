@@ -132,3 +132,10 @@ left JOIN species S
 ON  S.id = SP.species_id
 
 
+SELECT A.name,VE.name,V.date_of_visit  FROM animals A
+JOIN visits V
+ON A.id = V.animal_id
+JOIN vets VE
+ON VE.id = V.vet_id
+WHERE VE.name = 'Stephanie Mendez' and V.date_of_visit >= 'Apr 01, 2020' and V.date_of_visit >= 'Aug 30, 2020' 
+ 
