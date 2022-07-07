@@ -29,6 +29,16 @@ CREATE TABLE IF NOT EXISTS vets (
     date_of_graduation  DATE
 );
 
+CREATE TABLE IF NOT EXISTS specializations (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    species_id INT,
+    FOREIGN KEY (species_id) REFERENCES species(id),
+    vet_id INT,
+    FOREIGN KEY (vet_id) REFERENCES vets(id)
+
+);
+
+
 
 ALTER TABLE animals
 DROP COLUMN species;
