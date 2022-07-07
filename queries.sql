@@ -105,3 +105,15 @@ ON O.id = A.owner_id
 GROUP BY (O.full_name)
 ORDER BY COUNT(*) 
 DESC LIMIT 1;
+
+
+
+SELECT A.name FROM animals A
+JOIN visits V
+ON A.id = V.animal_id
+JOIN vets VE
+ON VE.id = V.vet_id
+WHERE VE.name = 'William Tatcher'
+ORDER BY V.date_of_visit
+DESC LIMIT 1;
+
