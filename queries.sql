@@ -125,3 +125,10 @@ ON VE.id = V.vet_id
 where VE.name ='Stephanie Mendez'
 group by  VE.name;
 
+SELECT VE.name as name_of_vets, S.name as name_of_animals FROM  vets VE
+left  Join specializations SP
+ON VE.id = SP.vet_id
+left JOIN species S
+ON  S.id = SP.species_id
+
+
