@@ -66,3 +66,18 @@ JOIN species S
 ON S.id = A.species_id
 WHERE S.name = 'Pokemon';
 
+
+
+SELECT O.full_name as owner, A.name as animal
+FROM animals A
+RIGHT JOIN owners O
+ON O.id = A.owner_id;
+
+SELECT COUNT(*), S.name 
+FROM animals A
+JOIN species S
+ON S.id = A.species_id
+GROUP BY S.name 
+
+
+
