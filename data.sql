@@ -14,3 +14,10 @@ UPDATE animals SET species_id = 2 where name LIKE '%mon';
 UPDATE animals SET species_id = 1 where species_id is null;
 COMMIT;
 
+BEGIN;
+UPDATE animals SET owner_id = 1 where name='Agumon';
+UPDATE animals SET owner_id = 2 WHERE name IN ('Gabumon', 'Pikachu');
+UPDATE animals SET owner_id = 3 WHERE name IN ('Plantmon', 'Devimon');
+UPDATE animals SET owner_id = 4 WHERE name IN ('Charmander', 'Squirtle','Blossom');
+UPDATE animals SET owner_id = 5 WHERE name IN ('Angemon', 'Boarmon');
+COMMIT;
