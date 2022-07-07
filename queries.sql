@@ -98,3 +98,10 @@ ON O.id = A.owner_id
 WHERE O.full_name = 'Dean Winchester' AND A.escape_attempts = 0;
 
 
+SELECT O.full_name, COUNT(*)
+FROM animals A
+JOIN owners O
+ON O.id = A.owner_id
+GROUP BY (O.full_name)
+ORDER BY COUNT(*) 
+DESC LIMIT 1;
