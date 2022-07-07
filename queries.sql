@@ -117,3 +117,11 @@ WHERE VE.name = 'William Tatcher'
 ORDER BY V.date_of_visit
 DESC LIMIT 1;
 
+SELECT count(A.name), VE.name FROM animals A
+JOIN visits V
+ON A.id = V.animal_id
+JOIN vets VE
+ON VE.id = V.vet_id
+where VE.name ='Stephanie Mendez'
+group by  VE.name;
+
