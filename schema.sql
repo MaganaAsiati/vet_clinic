@@ -8,19 +8,27 @@ CREATE TABLE animals (
     escape_attempts INT,
     neutered BOOLEAN ,
     weight_kg DECIMAL,
-    species varchar(100)
+    species VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS owners (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     full_name VARCHAR(100),
     age INT
-) ;
+);
 
 CREATE TABLE IF NOT EXISTS species(
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(100)
 );
+
+CREATE TABLE IF NOT EXISTS vets (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name  VARCHAR(100),
+    age INT,
+    date_of_graduation  DATE
+);
+
 
 ALTER TABLE animals
 DROP COLUMN species;
