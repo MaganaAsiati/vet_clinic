@@ -73,7 +73,13 @@ ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 -- Add animals_id index to visits table
 CREATE INDEX visits_animals_id_asc ON visits(animals_id ASC);
+-- delete visits_animals_id_asc  index 
+ DROP INDEX  visits_animals_id_asc;
 -- Create vets_id index on visits table
 CREATE INDEX visits_vets_id_asc ON visits(vets_id ASC);
+-- delete  visits_vets_id_asc index 
+DROP INDEX  visits_vets_id_asc;
 -- CREATE email index on owners table
-CREATE INDEX owners_email_asc ON owners(email, ASC);
+CREATE INDEX owners_email_asc ON owners(email ASC);
+-- delete  visits_vets_id_asc index 
+DROP INDEX  owners_email_asc;
