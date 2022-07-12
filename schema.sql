@@ -8,18 +8,44 @@ CREATE TABLE animals (
     escape_attempts INT,
     neutered BOOLEAN ,
     weight_kg DECIMAL,
-    species varchar(100)
+    species VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS owners (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     full_name VARCHAR(100),
     age INT
-) ;
+);
 
 CREATE TABLE IF NOT EXISTS species(
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS vets (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name  VARCHAR(100),
+    age INT,
+    date_of_graduation  DATE
+);
+
+CREATE TABLE IF NOT EXISTS specializations (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    species_id INT,
+    FOREIGN KEY (species_id) REFERENCES species(id),
+    vet_id INT,
+    FOREIGN KEY (vet_id) REFERENCES vets(id)
+
+);
+
+CREATE TABLE IF NOT EXISTS visits (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    data_of_visit DATE,
+    animal_id INT,
+    FOREIGN KEY (animal_id) REFERENCES animals(id),
+    vet_id INT,
+    FOREIGN KEY (vet_id) REFERENCES vets(id)
+
 );
 
 ALTER TABLE animals
