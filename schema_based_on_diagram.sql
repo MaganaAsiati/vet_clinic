@@ -19,6 +19,14 @@ CREATE TABLE IF NOT EXISTS medical_histories(
  status varchar(255)
 
 );
+/* Add treatments table to clinic database. */
+
+CREATE TABLE IF NOT EXISTS treatments(
+ id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ type varchar(255),
+ name VARCHAR(255)
+
+);
 
 
 
