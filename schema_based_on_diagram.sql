@@ -28,5 +28,26 @@ CREATE TABLE IF NOT EXISTS treatments(
 
 );
 
+/* Add  invoices table to clinic database. */
+
+CREATE TABLE IF NOT EXISTS invoices (
+id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    total_amount decimal,
+    generated_at decimal,
+    payed_at timestamp,
+    medical_history__id int REFERENCES medical_histories(id),
+);
+
+/* Add  invoice_items table to clinic database. */
+
+CREATE TABLE IF NOT EXISTS invoice_items (
+id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    unique_price decimal,
+    quantity int,
+    total_price decimal,
+    invoice_id int REFERENCES invoices(id),
+    treatment_id int REFERENCES treatments(id)
+);
+
 
 
