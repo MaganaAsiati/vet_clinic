@@ -11,5 +11,14 @@ CREATE TABLE IF NOT EXISTS patients(
 
 );
 
+/* Add medical_histories table to clinic database. */
+CREATE TABLE IF NOT EXISTS medical_histories(
+ id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ admitted_at timestamp,
+ patient_id int REFERENCES patients(id),
+ status varchar(255)
+
+);
+
 
 
